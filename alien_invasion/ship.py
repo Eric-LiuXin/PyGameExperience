@@ -1,8 +1,12 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Ship():
+
+class Ship(Sprite):
 
     def __init__(self, ai_settings, screen):
+        super().__init__()
+
         # 初始化飞船并设置其初始位置
         self.screen = screen
 
@@ -36,3 +40,7 @@ class Ship():
             self.center -= self.ai_settings.ship_speed_factor
 
         self.rect.centerx = self.center
+
+    def center_ship(self):
+        # 让飞船在屏幕上居中
+        self.center = self.screen_rect.centerx
